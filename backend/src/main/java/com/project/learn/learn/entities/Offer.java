@@ -23,10 +23,13 @@ public class Offer implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-   private Course course;
+    private Course course;
 
     @OneToMany(mappedBy = "offer")
     private List<Resource> resources = new ArrayList<>();
+
+    @OneToMany(mappedBy = "offer")
+    private List<Topic> topics = new ArrayList<>();
     public Offer() {
     }
 
@@ -80,6 +83,10 @@ public class Offer implements Serializable {
 
     public List<Resource> getResources() {
         return resources;
+    }
+
+    public List<Topic> getTopics() {
+        return topics;
     }
 
     @Override
